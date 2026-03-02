@@ -1,0 +1,35 @@
+name: Poll Trending News
+
+on:
+  schedule:
+    - cron: '*/5 * * * *'
+  workflow_dispatch: {}
+
+jobs:
+  poll:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Poll Hacker News
+        run: |
+          curl -sf -X POST "${{ secrets.VERCEL_URL }}/api/poll/hn" \
+            -H "Authorization: Bearer ${{ secrets.POLL_SECRET }}" \
+            -H "Content-Type: application/json" \
+            --max-time 15
+        continue-on-error: true
+
+      - name: Poll Reddit
+        run: |
+          curl -sf -X POST "${{ secrets.VERCEL_URL }}/api/poll/reddit" \
+            -H "Authorization: Bearer ${{ secrets.POLL_SECRET }}" \
+            -H "Content-Type: application/json" \
+            --max-time 90
+        continue-on-error: true
+
+      - name: Poll Bluesky
+        run: |
+          curl -sf -X POST "${{ secrets.VERCEL_URL }}/api/poll/bluesky" \
+            -H "Authorization: Bearer ${{ secrets.POLL_SECRET }}" \
+            -H "Content-Type: application/json" \
+            --max-time 45
+        continue-on-error: true

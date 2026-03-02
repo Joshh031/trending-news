@@ -1,0 +1,15 @@
+{
+  "framework": "vite",
+  "functions": {
+    "api/poll/reddit.js": {
+      "maxDuration": 60
+    },
+    "api/poll/bluesky.js": {
+      "maxDuration": 30
+    }
+  },
+  "rewrites": [
+    { "source": "/api/(.*)", "destination": "/api/$1" },
+    { "source": "/((?!api/).*)", "destination": "/index.html" }
+  ]
+}
