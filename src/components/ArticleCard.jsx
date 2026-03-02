@@ -32,6 +32,7 @@ export default function ArticleCard({ article, rank }) {
           <SourceBadge source="hackerNews" count={article.sources.hackerNews.count} />
           <SourceBadge source="reddit" count={article.sources.reddit.count} />
           <SourceBadge source="bluesky" count={article.sources.bluesky.count} />
+          <SourceBadge source="rss" count={article.sources.rss?.count ?? 0} />
         </div>
         <span className="article-total-mentions">
           {article.totalMentions} {article.totalMentions === 1 ? 'share' : 'shares'}

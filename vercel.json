@@ -6,6 +6,9 @@
     },
     "api/poll/bluesky.js": {
       "maxDuration": 30
+    },
+    "api/poll/rss.js": {
+      "maxDuration": 30
     }
   },
   "rewrites": [

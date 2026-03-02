@@ -2,6 +2,7 @@ const SOURCE_CONFIG = {
   hackerNews: { label: 'HN', className: 'source-hn' },
   reddit: { label: 'Reddit', className: 'source-reddit' },
   bluesky: { label: 'Bluesky', className: 'source-bluesky' },
+  rss: { label: 'News', className: 'source-rss' },
 };
 
 export default function SourceBadge({ source, count }) {

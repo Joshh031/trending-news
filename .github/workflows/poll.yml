@@ -33,3 +33,11 @@ jobs:
             -H "Content-Type: application/json" \
             --max-time 45
         continue-on-error: true
+
+      - name: Poll RSS (NYT, BBC, Guardian, AP, WSJ, NPR)
+        run: |
+          curl -sf -X POST "${{ secrets.VERCEL_URL }}/api/poll/rss" \
+            -H "Authorization: Bearer ${{ secrets.POLL_SECRET }}" \
+            -H "Content-Type: application/json" \
+            --max-time 30
+        continue-on-error: true

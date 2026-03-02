@@ -43,7 +43,7 @@ export default function App() {
       </main>
       <footer className="footer">
         <span>Trending News Aggregator</span>
-        <span>Bluesky + Reddit + Hacker News</span>
+        <span>NYT · BBC · WSJ · AP · Guardian · Reddit · Bluesky · HN</span>
       </footer>
     </div>
   );
